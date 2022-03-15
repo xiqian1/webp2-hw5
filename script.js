@@ -10,8 +10,9 @@ fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
     .catch((err) => {
         // handle errors
     });
+
 getcard.onclick=draw;
-let i=0;
+
 function draw(){
     const pic=document.getElementById("pic");
     fetch(`https://deckofcardsapi.com/api/deck/${deckid}/draw/?count=1`)
@@ -20,7 +21,7 @@ function draw(){
         })
         .then((drawjson) => {
             console.log(drawjson);
-            let cards=drawjson.cards[i];
+            let cards=drawjson.cards[0];
             pic.src=cards.image;
         })
         .catch((err) => {
